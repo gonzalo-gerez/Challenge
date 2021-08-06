@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MyChallenge</string>
+    <string name="login_title">Iniciá sesión con facebook</string>
+    <string name="facebook_button_text">Facebook</string>
+    <string name="facebook_app_id">565621811465972</string>
+    <string name="fb_login_protocol_scheme">fb565621811465972</string>
+    <string name="name">Nombre</string>
+    <string name="surname">Apellido</string>
+    <string name="age">Edad</string>
+    <string name="new_client_title">Nuevo cliente</string>
+    <string name="button_continue">Continuar</string>
+    <string name="check_form">Debes completar todos los campos del formulario.</string>
+    <string name="birthdate_hint">Fecha de nacimiento</string>
+    <string name="new_client_success">Has agregado el cliente.</string>
+    <string name="error_when_save">Algo ha ocurrido guardando el cliente.</string>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1007051614399",
+    "project_id": "mychallenge-f61e8",
+    "storage_bucket": "mychallenge-f61e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007051614399:android:143ff52839be93e31c3e0a",
+        "android_client_info": {
+          "package_name": "gonzalo.dev.mychallenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007051614399-ulpkmlaf0ejhro6pe58flvn5eerr8jsv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPPT7dH5XRvQ3J43Xjxeq5nv1IG8VCums"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007051614399-ulpkmlaf0ejhro6pe58flvn5eerr8jsv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
