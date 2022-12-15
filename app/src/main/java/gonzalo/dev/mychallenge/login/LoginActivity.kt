@@ -35,11 +35,9 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
 
         val loginButton = loginBinding.buttonLogin
 
-        getViewModel().accessTokenState.observe(this, {
-            println("fata ready to next")
-            //go to next activity
+        getViewModel().accessTokenState.observe(this) {
             goToNextActivity()
-        })
+        }
 
         loginButton.setReadPermissions("email")
 

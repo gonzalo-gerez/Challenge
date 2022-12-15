@@ -1,12 +1,9 @@
 package gonzalo.dev.core.domain.repository
 
-import gonzalo.dev.core.data.ClientDataSource
 import gonzalo.dev.core.domain.model.Client
-import io.reactivex.rxjava3.core.Observable
+import kotlinx.coroutines.flow.Flow
 
-class ClientRepository (private val clientDataSource: ClientDataSource) {
+interface ClientRepository {
 
-    fun saveInCloud(client: Client): Observable<Boolean> {
-        return clientDataSource.saveClient(client)
-    }
+    fun saveInCloud(client: Client): Flow<Boolean>
 }

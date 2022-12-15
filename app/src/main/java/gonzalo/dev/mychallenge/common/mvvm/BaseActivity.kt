@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import gonzalo.dev.mychallenge.R
 import gonzalo.dev.mychallenge.common.animation.AnimationUtil
+import gonzalo.dev.mychallenge.databinding.ActivityBaseBinding
 
 abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
 
@@ -22,33 +23,34 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
     private lateinit var errorView: ViewGroup
     private var viewState: ViewState.State = ViewState.State.LAYOUT
 
+    private val binding: ActivityBaseBinding by lazy { ActivityBaseBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_base)
+        setContentView(binding.root)
 
         vModel = createViewModelFactory()
 
-        layoutView = findViewById(R.id.base_layout_view)
+        layoutView = binding.baseLayoutView
         layoutView.addView(getRootView())
 
-        loadingView = findViewById(R.id.base_layout_loading_view)
+        loadingView = binding.baseLayoutLoadingView
         loadingView.addView(layoutInflater.inflate(R.layout.layout_loading_view, null))
 
-        errorView = findViewById(R.id.base_layout_error_view)
+        errorView = binding.baseLayoutErrorView
 
-        vModel.viewState.observe(this, { viewState ->
+        vModel.viewState.observe(this) { viewState ->
             this.viewState = viewState!!.getViewState()
             when (viewState.getViewState()) {
                 ViewState.State.LAYOUT -> showLayoutView()
                 ViewState.State.LOADING -> showLoadingView()
                 ViewState.State.ERROR -> showErrorView()
             }
-        })
+        }
 
-        getViewModel().errorState.observe(this, {
+        getViewModel().errorState.observe(this) {
             Snackbar.make(findViewById(R.id.baseContainer), it, Snackbar.LENGTH_SHORT).show()
-        })
+        }
 
         vModel.setViewStateAsLayout()
     }

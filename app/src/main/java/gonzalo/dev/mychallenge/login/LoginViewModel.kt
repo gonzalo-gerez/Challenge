@@ -14,12 +14,12 @@ class LoginViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     @VisibleForTesting
-    val _accessTokenState = MutableLiveData<Void?>()
-    val accessTokenState: LiveData<Void?> = _accessTokenState
+    val mutableAccessTokenState = MutableLiveData<Void?>()
+    val accessTokenState: LiveData<Void?> = mutableAccessTokenState
 
     fun checkFacebookAccessToken() {
         if (facebookAccessToken != null && !facebookAccessToken.isExpired) {
-            _accessTokenState.postValue(null)
+            mutableAccessTokenState.postValue(null)
         }
     }
 }

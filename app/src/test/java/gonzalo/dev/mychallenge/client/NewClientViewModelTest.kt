@@ -20,7 +20,7 @@ class NewClientViewModelTest : AbstractRobolectricTest() {
         viewModel.registerClient(client)
 
         verify {
-            clientUseCase.saveInCloud(client)
+            clientUseCase.execute(client)
         }
     }
 
