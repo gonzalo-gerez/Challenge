@@ -16,8 +16,4 @@ class ChallengeApp : Application() {
         FacebookSdk.sdkInitialize(applicationContext)
         AppEventsLogger.activateApp(this)
     }
-
-    override fun onTerminate() {
-        super.onTerminate()
-    }
 }

@@ -7,12 +7,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "gonzalo.dev.mychallenge"
         minSdkVersion 29
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
@@ -26,17 +26,19 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     kotlinOptions {
         jvmTarget = '1.8'
     }
 
-    buildFeatures {
-        viewBinding true
+    viewBinding {
+        enabled = true
     }
+
+    namespace 'gonzalo.dev.mychallenge'
 }
 
 dependencies {
@@ -51,8 +53,6 @@ dependencies {
     //Hilt
     implementation "com.google.dagger:hilt-android:$Versions.hilt"
     kapt "com.google.dagger:hilt-android-compiler:$Versions.hilt"
-
-    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
     kapt 'androidx.hilt:hilt-compiler:1.0.0'
 
     //Firebase
@@ -63,16 +63,17 @@ dependencies {
 
     implementation("androidx.activity:activity-ktx:$Versions.activityKtx")
 
-    implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
+    implementation 'com.facebook.android:facebook-android-sdk:11.3.0'
 
     //Lifecycle
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$Versions.lifecycleKtx")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$Versions.lifecycleKtx")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$Versions.lifecycleKtx"
 
     //Coroutine
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$Versions.coroutine"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$Versions.coroutinePlayServices"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
     implementation("io.reactivex.rxjava3:rxkotlin:$Versions.rx")
 

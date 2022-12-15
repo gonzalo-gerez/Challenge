@@ -42,7 +42,7 @@ class NewClientActivity : BaseActivity<NewClientViewModel>() {
             pickerDialog.show()
         }
 
-        getViewModel().formState.observe(this, {
+        getViewModel().formState.observe(this) {
             it?.let {
                 getViewModel().registerClient(it)
             } ?: run {
@@ -52,14 +52,14 @@ class NewClientActivity : BaseActivity<NewClientViewModel>() {
                     Snackbar.LENGTH_SHORT
                 ).show()
             }
-        })
+        }
 
-        getViewModel().refreshUIstate.observe(this, {
+        getViewModel().refreshUIstate.observe(this) {
             binding.nameTil.editText?.setText("")
             binding.surnameTil.editText?.setText("")
             binding.birthDayTil.editText?.setText("")
             binding.ageTil.editText?.setText("")
-        })
+        }
 
         binding.clientConfirmButton.setOnClickListener {
             getViewModel().checkForm(
